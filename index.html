@@ -482,17 +482,20 @@
                         </form>
                         
                         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-                        <script>
-                            $(document).ready(function () {
-                                $("#contactForm").submit(function (event) {
-                                    if ($("#contactForm")[0].checkValidity() === false) {
-                                        event.preventDefault();
-                                        event.stopPropagation();
-                                    }
-                                    $("#contactForm").addClass("was-validated");
-                                });
+                       <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                              var contactForm = document.getElementById('contactForm');
+                          
+                              contactForm.addEventListener('submit', function (event) {
+                                if (!contactForm.checkValidity()) {
+                                  event.preventDefault();
+                                  event.stopPropagation();
+                                }
+                          
+                                contactForm.classList.add('was-validated');
+                              });
                             });
-                        </script>
+                          </script>
                         
                         
                     </div>
